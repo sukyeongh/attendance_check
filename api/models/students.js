@@ -3,15 +3,12 @@ const mongoose = require('mongoose');
 const studentSchema = new mongoose.Schema({
   studentid: {
     type: Number,
-    required: true,
   },
   pw: {
     type: String,
-    required: true,
   },
   name: {
     type: String,
-    required: true,
   },
 });
 

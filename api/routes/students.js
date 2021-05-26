@@ -25,7 +25,6 @@ router.get('/studentid/:studentid', (req, res) => {
 
 // Create new student document
 router.post('/', (req, res) => {
-  console.log(req.body);
   Student.create(req.body)
     .then((student) => res.send(student))
     .catch((err) => res.status(500).send(err));

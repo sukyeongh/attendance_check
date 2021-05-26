@@ -17,9 +17,13 @@ app.use(bodyParser.json());
 // Node의 native Promise 사용
 mongoose.Promise = global.Promise;
 
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
+mongoose.set('useNewUrlParser', true);
+
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGO_URI, { useMongoClient: true })
+  .connect(process.env.MONGO_URI)
   .then(() => console.log('Successfully connected to mongodb'))
   .catch((e) => console.error(e));
 
