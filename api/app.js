@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = 3001;
 
 // Static File Service
 app.use(express.static('public'));
@@ -23,7 +23,7 @@ mongoose.set('useNewUrlParser', true);
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect('mongodb://localhost:27017/attendance')
   .then(() => console.log('Successfully connected to mongodb'))
   .catch((e) => console.error(e));
 
