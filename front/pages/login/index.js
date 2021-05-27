@@ -1,4 +1,4 @@
-import Router from 'next/rouer';
+import Router from 'next/router';
 import styles from '../../styles/Home.module.css';
 import { Button, TextField } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
@@ -27,10 +27,6 @@ const Login = () => {
           홈으로 돌아가기
         </Button>
       </main>
-
-      <footer className={styles.footer}>
-        <div>2133603 황수경 기말프로젝트</div>
-      </footer>
     </div>
   );
 };

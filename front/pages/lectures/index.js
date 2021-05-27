@@ -76,10 +76,6 @@ const Lectures = () => {
           홈으로 돌아가기
         </Button>
       </main>
-
-      <footer className={styles.footer}>
-        <div>2133603 황수경 기말프로젝트</div>
-      </footer>
     </div>
   );
 };

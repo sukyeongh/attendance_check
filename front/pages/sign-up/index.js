@@ -4,6 +4,9 @@ import { Button, TextField } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import {} from '@material-ui/icons';
 
+import axios from 'axios';
+import React from 'react';
+
 const SignUp = () => {
   return (
     <div className={styles.container}>
@@ -16,12 +19,7 @@ const SignUp = () => {
           <TextField id='name' label='이름' variant='outlined' style={{ width: `300px`, margin: `5px` }} />
         </div>
 
-        <Button
-          variant='outlined'
-          color='primary'
-          style={{ width: `300px`, margin: `5px` }}
-          onClick={() => Router.push('/lectures')}
-        >
+        <Button variant='outlined' color='primary' style={{ width: `300px`, margin: `5px` }}>
           가입하기
         </Button>
         <Button
@@ -33,12 +31,18 @@ const SignUp = () => {
           로그인하러 가기
         </Button>
       </main>
-
-      <footer className={styles.footer}>
-        <div>2133603 황수경 기말프로젝트</div>
-      </footer>
     </div>
   );
 };
+
+// SignUp.getInitialProps = async () => {
+//   const res = await axios.post('http://localhost:3001/students', {
+
+//   })
+
+//   return {
+//     user: res.data,
+//   };
+// };
 
 export default SignUp;

@@ -10,7 +10,7 @@ const Home = () => {
     <div className={styles.container}>
       <Head>
         <title>출결 시스템</title>
-        <meta name='description' content='황수경 기말 프로젝트입니다.' />
+        <meta name='description' content='황수경의 IoT 프로젝트입니다.' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
 

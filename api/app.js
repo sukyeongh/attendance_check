@@ -28,6 +28,6 @@ mongoose
   .catch((e) => console.error(e));
 
 // ROUTERS
-app.use('/students', require('./routes/students'));
+app.use('/api/students', require('./routes/students'));
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
