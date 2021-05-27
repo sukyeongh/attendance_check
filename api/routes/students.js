@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 // Find One by studentid
-router.get('/studentid/:studentid', (req, res) => {
+router.get('/:studentid', (req, res) => {
   Student.findOneByStudentid(req.params.studentid)
     .then((student) => {
       if (!student) return res.status(404).send({ err: 'Student not found' });
@@ -31,14 +31,14 @@ router.post('/', (req, res) => {
 });
 
 // Update by studentid
-router.put('/studentid/:studentid', (req, res) => {
+router.put('/:studentid', (req, res) => {
   Student.updateByStudentid(req.params.studentid, req.body)
     .then((student) => res.send(student))
     .catch((err) => res.status(500).send(err));
 });
 
 // Delete by studentid
-router.delete('/studentid/:studentid', (req, res) => {
+router.delete('/:studentid', (req, res) => {
   Student.deleteByStudentid(req.params.studentid)
     .then(() => res.sendStatus(200))
     .catch((err) => res.status(500).send(err));
