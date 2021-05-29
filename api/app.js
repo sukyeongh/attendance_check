@@ -27,7 +27,16 @@ mongoose
   .then(() => console.log('Successfully connected to mongodb'))
   .catch((e) => console.error(e));
 
+app.all('/*', function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+  next();
+});
+
 // ROUTERS
 app.use('/api/students', require('./routes/students'));
+app.use('/api/professors', require('./routes/professors'));
+app.use('/api/lectures', require('./routes/lectures'));
+app.use('/api/attendances', require('./routes/attendances'));
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
