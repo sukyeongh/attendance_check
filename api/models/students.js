@@ -25,6 +25,11 @@ studentSchema.statics.findAll = function () {
 };
 
 // Find One by studentid
+studentSchema.statics.findOneByStudentidAndPW = function (studentid, pw) {
+  return this.findOne({ studentid, pw });
+};
+
+// Find One by studentid
 studentSchema.statics.findOneByStudentid = function (studentid) {
   return this.findOne({ studentid });
 };
