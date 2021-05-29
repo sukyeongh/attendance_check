@@ -5,44 +5,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardContent, Typography, CardActionArea, Button } from '@material-ui/core';
 import {} from '@material-ui/icons';
 
+import axios from 'axios';
+import React, { useState } from 'react';
+
 const useStyles = makeStyles({
   root: {
     minWidth: 300,
     width: '300px',
   },
-  title: {
-    fontSize: 14,
-  },
 });
 
-const lecture_list = [
-  {
-    id: 1,
-    title: 'IoT서버',
-    professor: '강준규',
-    day: '화요일',
-  },
-  {
-    id: 2,
-    title: '파이썬 프로그래밍',
-    professor: '문주영',
-    day: '월요일',
-  },
-  {
-    id: 3,
-    title: '정보기술세미나',
-    professor: '임웅택',
-    day: '목요일',
-  },
-  {
-    id: 4,
-    title: 'VR컨텐츠',
-    professor: '최윤석',
-    day: '수요일',
-  },
-];
-
-const Lectures = () => {
+const Lectures = ({ lectures }) => {
   const classes = useStyles();
 
   return (
@@ -51,13 +24,13 @@ const Lectures = () => {
         <h1 className={styles.title}>강의 목록</h1>
 
         <div className={styles.card}>
-          {lecture_list.map((item) => (
-            <div key={item.id} style={{ margin: `5px` }}>
-              <Link href={`/lectures/${item.id}`}>
+          {lectures.map((item) => (
+            <div key={item.lectureid} style={{ margin: `5px` }}>
+              <Link href={`/lectures/${item.lectureid}`}>
                 <Card className={classes.root}>
                   <CardActionArea>
                     <CardContent style={{ width: '300px' }}>
-                      <Typography className={classes.title} color='textSecondary' gutterBottom>
+                      <Typography color='textSecondary' gutterBottom>
                         {item.day}
                       </Typography>
                       <Typography variant='h5' component='h2'>
@@ -71,13 +44,16 @@ const Lectures = () => {
             </div>
           ))}
         </div>
-
-        <Button variant='outlined' style={{ width: `300px`, margin: `5px` }} onClick={() => Router.push('/')}>
-          홈으로 돌아가기
-        </Button>
       </main>
     </div>
   );
+};
+
+Lectures.getInitialProps = async () => {
+  const res = await axios.get(`http://localhost:3001/api/lectures/`);
+  return {
+    lectures: res.data,
+  };
 };
 
 export default Lectures;
