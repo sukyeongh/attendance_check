@@ -42,7 +42,7 @@ const SignUp = () => {
     params.append('studentid', user.id);
     params.append('pw', user.pw);
     params.append('name', user.name);
-    const res = await axios.post(`http://localhost:3001/api/students`, params);
+    const res = await axios.post(`http://210.94.26.71:3001/api/students`, params);
 
     if (res.data) {
       alert('회원가입되었습니다.');
@@ -61,7 +61,7 @@ const SignUp = () => {
     params.append('professorid', user.id);
     params.append('pw', user.pw);
     params.append('name', user.name);
-    const res = await axios.post(`http://localhost:3001/api/professors`, params);
+    const res = await axios.post(`http://210.94.26.71:3001/api/professors`, params);
 
     if (res.data) {
       alert('회원가입되었습니다.');

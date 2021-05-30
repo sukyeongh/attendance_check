@@ -23,7 +23,7 @@ mongoose.set('useNewUrlParser', true);
 
 // Connect to MongoDB
 mongoose
-  .connect('mongodb://localhost:27017/attendance')
+  .connect('mongodb://210.94.26.71:27017/attendance')
   .then(() => console.log('Successfully connected to mongodb'))
   .catch((e) => console.error(e));
 

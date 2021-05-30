@@ -18,14 +18,14 @@ const Lecture = ({ lecture }) => {
 
   const onAttendLecture = async () => {
     if (cookies.userid !== undefined) {
-      const data = (await axios.get(`http://localhost:3001/api/students/id/${cookies.userid}`)).data;
+      const data = (await axios.get(`http://210.94.26.71:3001/api/students/id/${cookies.userid}`)).data;
 
       if (data) {
         const params = new URLSearchParams();
         params.append('studentid', data.studentid);
         params.append('studentname', data.name);
         params.append('lectureid', lecture.lectureid);
-        const res = await axios.post(`http://localhost:3001/api/attendances`, params);
+        const res = await axios.post(`http://210.94.26.71:3001/api/attendances`, params);
 
         if (res.data) {
           alert('출석되었습니다.');
@@ -77,7 +77,7 @@ const Lecture = ({ lecture }) => {
 };
 
 Lecture.getInitialProps = async ({ req, query: { id } }) => {
-  const res = await axios.get(`http://localhost:3001/api/lectures/${id}`);
+  const res = await axios.get(`http://210.94.26.71:3001/api/lectures/${id}`);
 
   return {
     lecture: res.data,

@@ -37,7 +37,7 @@ const Login = () => {
 
   const onLogin = async () => {
     if (isStudent) {
-      const res = await axios.get(`http://localhost:3001/api/students/${user.id}`, {
+      const res = await axios.get(`http://210.94.26.71:3001/api/students/${user.id}`, {
         params: {
           pw: user.pw,
         },
@@ -51,7 +51,7 @@ const Login = () => {
         Router.push('/lectures');
       }
     } else {
-      const res = await axios.get(`http://localhost:3001/api/professors/${professor.id}`, {
+      const res = await axios.get(`http://210.94.26.71:3001/api/professors/${professor.id}`, {
         params: {
           pw: professor.pw,
         },

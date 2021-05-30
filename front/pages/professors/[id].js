@@ -45,9 +45,9 @@ const Professor = ({ lecture, attendances }) => {
 };
 
 Professor.getInitialProps = async ({ req, query: { id } }) => {
-  const lecture = (await axios.get(`http://localhost:3001/api/lectures/${id}`)).data;
+  const lecture = (await axios.get(`http://210.94.26.71:3001/api/lectures/${id}`)).data;
 
-  const attendances = (await axios.get(`http://localhost:3001/api/attendances/${id}`)).data;
+  const attendances = (await axios.get(`http://210.94.26.71:3001/api/attendances/${id}`)).data;
 
   return {
     lecture: lecture,
