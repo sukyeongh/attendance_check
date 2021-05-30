@@ -20,12 +20,12 @@ const lecture_list = [
   },
   {
     id: 5,
-    title: '최신개발기술',
+    title: '오픈소스소프트웨어',
     day: '월요일',
   },
   {
     id: 6,
-    title: '오픈소스소프트웨어',
+    title: '최신개발기술',
     day: '수요일',
   },
   {
