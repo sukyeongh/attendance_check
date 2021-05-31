@@ -58,9 +58,9 @@ const SignUp = () => {
 
   const onAddProfessors = async () => {
     const params = new URLSearchParams();
-    params.append('professorid', user.id);
-    params.append('pw', user.pw);
-    params.append('name', user.name);
+    params.append('professorid', professor.id);
+    params.append('pw', professor.pw);
+    params.append('name', professor.name);
     const res = await axios.post(`http://210.94.26.71:3001/api/professors`, params);
 
     if (res.data) {

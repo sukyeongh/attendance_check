@@ -21,7 +21,7 @@ const Lectures = ({ lectures }) => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h1 className={styles.title}>강의 목록</h1>
+        <h1 className={styles.title}>수강 목록</h1>
 
         <div className={styles.card}>
           {lectures.map((item) => (
