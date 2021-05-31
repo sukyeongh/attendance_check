@@ -14,6 +14,16 @@ const Professor = ({ lecture, attendances }) => {
     Router.push('/');
   };
 
+  const onResetAttendance = async () => {
+    const data = (await axios.delete(`http://210.94.26.71:3001/api/attendances/reset/${lecture.lectureid}`)).data;
+
+    if (data) {
+      alert('초기화되었습니다.');
+    } else {
+      alert('초기화에 실패하였습니다.');
+    }
+  };
+
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -33,6 +43,14 @@ const Professor = ({ lecture, attendances }) => {
           </List>
         </div>
 
+        <Button
+          color='primary'
+          variant='outlined'
+          style={{ width: `300px`, margin: `5px` }}
+          onClick={onResetAttendance}
+        >
+          초기화
+        </Button>
         <Button variant='outlined' style={{ width: `300px`, margin: `5px` }} onClick={() => Router.push('/professors')}>
           강의목록 보기
         </Button>
