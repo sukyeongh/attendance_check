@@ -28,4 +28,25 @@ router.get('/:lectureid', (req, res) => {
     .catch((err) => res.status(500).send(err));
 });
 
+router.get('/attend/:lectureid', (req, res) => {
+  Attendance.findOneByLectureAndStudentid(req.params.lectureid, req.query.studentid)
+    .then((attendance) => {
+      if (!attendance) return res.status(200).send(false);
+      res.send(true);
+    })
+    .catch((err) => res.status(500).send(err));
+});
+
+router.delete('/:lectureid', (req, res) => {
+  Attendance.deleteByLectureid(req.params.lectureid, req.query.studentid)
+    .then(() => res.send(true))
+    .catch((err) => res.status(500).send(err));
+});
+
+router.delete('/reset/:lectureid', (req, res) => {
+  Attendance.deleteByLectureidOnReset(req.params.lectureid)
+    .then(() => res.send(true))
+    .catch((err) => res.status(500).send(err));
+});
+
 module.exports = router;
