@@ -50,7 +50,7 @@ const Lectures = ({ lectures }) => {
 };
 
 Lectures.getInitialProps = async () => {
-  const res = await axios.get(`http://210.94.26.71:3001/api/lectures/`);
+  const res = await axios.get(`http://localhost:3001/api/lectures/`);
   return {
     lectures: res.data,
   };

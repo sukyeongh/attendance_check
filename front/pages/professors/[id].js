@@ -15,7 +15,7 @@ const Professor = ({ lecture, attendances }) => {
   };
 
   const onResetAttendance = async () => {
-    const data = (await axios.delete(`http://210.94.26.71:3001/api/attendances/reset/${lecture.lectureid}`)).data;
+    const data = (await axios.delete(`http://localhost:3001/api/attendances/reset/${lecture.lectureid}`)).data;
 
     if (data) {
       alert('초기화되었습니다.');
@@ -63,9 +63,9 @@ const Professor = ({ lecture, attendances }) => {
 };
 
 Professor.getInitialProps = async ({ req, query: { id } }) => {
-  const lecture = (await axios.get(`http://210.94.26.71:3001/api/lectures/${id}`)).data;
+  const lecture = (await axios.get(`http://localhost:3001/api/lectures/${id}`)).data;
 
-  const attendances = (await axios.get(`http://210.94.26.71:3001/api/attendances/${id}`)).data;
+  const attendances = (await axios.get(`http://localhost:3001/api/attendances/${id}`)).data;
 
   return {
     lecture: lecture,
