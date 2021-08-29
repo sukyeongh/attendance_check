@@ -17,10 +17,7 @@ attendanceSchema.statics.create = function (payload) {
   return attendance.save();
 };
 
-// Find All
 attendanceSchema.statics.findAll = function () {
-  // return promise
-  // V4부터 exec() 필요없음
   return this.find({});
 };
 
@@ -40,5 +37,4 @@ attendanceSchema.statics.deleteByLectureidOnReset = function (lectureid) {
   return this.deleteMany({ lectureid });
 };
 
-// Create Model & Export
 module.exports = mongoose.model('Attendance', attendanceSchema);
